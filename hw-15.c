@@ -27,9 +27,11 @@ char **parse_args(char *line){
 }
 
 int main(){
-    char line[100];
-    printf("Put an terminal command here...\n");
-    read(STDIN_FILENO, line, 100);
-    char **args = parse_args(line);
-    execvp(args[0], args);
+    while(1){
+        char line[100] = {0};
+        printf("Put an terminal command here...\n");
+        read(STDIN_FILENO, line, 100);
+        char **args = parse_args(line);
+        execvp(args[0], args);
+    }
 }
